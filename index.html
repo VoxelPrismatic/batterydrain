@@ -32,17 +32,23 @@
                     window.setInterval(loop, 1000);
                 }
             }
+            function log_countdown(n) {
+                for(var x = 0; x < n; x += 1)
+                    window.setTimeout(() => console.log("Starting in " + x + "s"), x * 1000)
+            }
             if(document.URL.includes("?tabnumber=")) {
                 var n = Number.parseInt(document.URL.split("?tabnumber=")[1])
                 if(n <= 16)
                     window.setTimeout(() => window.open(".?tabnumber=" + (n + 1)), 1000);
                 window.setTimeout(loop, n * 64000 - 2000 * x);
+                log_countdown(64 - 2 * x);
             }
             function start() {
                 if(window.confirm("Are you sure you want to do this? [You will not gain access to the tab until the device dies]")) {
                     if(window.confirm("Are you *really* sure? [this will open 16 tabs that all do the same thing]")) {
                         window.setTimeout(() => window.open(".?tabnumber=1"), 1000);
                         window.setTimeout(loop, 64000);
+                        log_countdown(64);
                     }
                 }
             }
