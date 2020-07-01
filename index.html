@@ -4,19 +4,31 @@
         <h1>#] BATTERY DRAIN TEST</h1>
         <h3>How it works:</h3>
         <pre style="color:#ccc">
-<span style="color:#888">/* Go down 50 levels and start a while loop that never ends and does nothing */</span>
+<span style="color:#888">
+/* Go down 50 levels and start a while loop *
+ * that never ends and does nothing. Print  *
+ * out that level, and make sure a new loop *
+ * starts every one second. Basically, not  *
+ * fun for your device.                     */
+</span>
 <span style="color:#0f0">function</span> <span style="color:#44f">loop</span>(level = <span style="color:#f80">1</span>) {
+    <span style="color:#f44">console</span>.<span style="color:#44f">log</span>(level);
+    <span style="color:#f44">window</span>.<span style="color:#44f">setInterval</span>(loop, <span style="color:#f80">1000</span>);
     <span style="color:#0f8">while</span>(level &lt; <span style="color:#f80">50</span>) {
         <span style="color:#44f">loop</span>(level + <span style="color:#f80">1</span>);
         <span style="color:#f44">console</span>.<span style="color:#44f">log</span>(level);
+        <span style="color:#f44">console</span>.<span style="color:#44f">setInterval</span>(loop, <span style="color:#f80">1000</span>);
     }
 }
         </pre>
         <script type="text/javascript">
             function loop(level = 1) {
+                console.log(level);
+                window.setInterval(loop, 1000);
                 while(level < 50) {
                     loop(level + 1);
                     console.log(level);
+                    window.setInterval(loop, 1000);
                 }
             }
             function start() {
