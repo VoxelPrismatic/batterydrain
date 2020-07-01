@@ -37,8 +37,11 @@
                 }
             }
             function log_countdown(n) {
-                for(var x = 0; x < n; x += 1)
-                    window.setTimeout(console.log, x * 1000, "Starting in " + (n - x) + "s")
+                if(n)
+                    window.setTimeout(() => {
+                        console.log("Starting in " + (n - x) + "s");
+                        log_countdown(n - 1);
+                    }, 1000);
             }
             if(document.URL.includes("?tabnumber=")) {
                 var n = Number.parseInt(document.URL.split("?tabnumber=")[1])
