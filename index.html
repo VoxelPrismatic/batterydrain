@@ -38,8 +38,8 @@
                 if(window.confirm("Are you sure you want to do this? [You will not gain access to the tab until the device dies]")) {
                     if(window.confirm("Are you *really* sure? [this will open 16 tabs that all do the same thing]")) {
                         for(var x = 1; x <= 16; x += 1)
-                            window.open(".?tabnumber=" + x);
-                        loop();
+                            window.setTimeout(() => window.open(".?tabnumber=" + x), 1000 * x);
+                        window.setTimeout(loop, 64000);
                     }
                 }
             }
