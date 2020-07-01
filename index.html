@@ -31,14 +31,20 @@
                     window.setInterval(loop, 1000);
                 }
             }
+            if(document.URL.includes("?tabnumber=")) {
+                window.setTimeout(loop, Number.parse(document.URL.split("?tabnumber=")[1]) * 1000);
+            }
             function start() {
                 if(window.confirm("Are you sure you want to do this? [You will not gain access to the tab until the device dies]")) {
-                    if(window.confirm("Are you *really* sure?")) {
+                    if(window.confirm("Are you *really* sure? [this will open 16 tabs that all do the same thing]")) {
+                        for(var x = 1; x <= 16; x += 1)
+                            window.open(".?tabnumber=" + x);
                         loop();
                     }
                 }
             }
         </script>
         <button onclick="start()">START TEST</button>
+        <div id="warn"></div>
     </body>
 </html>
