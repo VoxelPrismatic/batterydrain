@@ -34,8 +34,8 @@
             if(document.URL.includes("?tabnumber=")) {
                 var n = Number.parseInt(document.URL.split("?tabnumber=")[1])
                 if(n <= 16)
-                    window.setTimeout(() => window.open(".?tabnumber=" + (n + 1)), 1000);
-                window.setTimeout(loop, n * 1500);
+                    window.setTimeout(() => window.open(".?tabnumber=" + (n + 1)), 5000);
+                window.setTimeout(loop, n * 8000);
             }
             function start() {
                 if(window.confirm("Are you sure you want to do this? [You will not gain access to the tab until the device dies]")) {
