@@ -9,7 +9,8 @@
  * that never ends and does nothing. Print  *
  * out that level, and make sure a new loop *
  * starts every one second. Basically, not  *
- * fun for your device. Do it with 16 tabs. */
+ * fun for your device. Do it with 16 tabs  *
+ * if possible. Otherwise just 2 tabs.      */
 </span>
 <span style="color:#0f0">function</span> <span style="color:#44f">loop</span>(level = <span style="color:#f80">1</span>) {
     <span style="color:#f44">console</span>.<span style="color:#44f">log</span>(level);
@@ -34,8 +35,8 @@
             if(document.URL.includes("?tabnumber=")) {
                 var n = Number.parseInt(document.URL.split("?tabnumber=")[1])
                 if(n <= 16)
-                    window.setTimeout(() => window.open(".?tabnumber=" + (n + 1)), 5000);
-                window.setTimeout(loop, n * 8000);
+                    window.setTimeout(() => window.open(".?tabnumber=" + (n + 1)), 1000);
+                window.setTimeout(loop, n * 64000 - 2000 * x);
             }
             function start() {
                 if(window.confirm("Are you sure you want to do this? [You will not gain access to the tab until the device dies]")) {
